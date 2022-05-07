@@ -131,3 +131,41 @@ aside{
 .cart--finalizar:hover{
     background-color: #242222;
 }
+
+.hamburgerwindowarea{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:flex;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto
+}
+.hambInfo--cancelMobileButton{
+    display: none;
+}
+.hamburgerbodyarea{
+    display: flex;
+    width: 900px;
+    background-color: rgb(219, 87, 26);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #999;
+}
+.hamburguerimagearea{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.hamburguerimagearea img{
+    height: 400px;
+    width: auto;
+}
+.hamb--info{
+    flex: 1;
+}
