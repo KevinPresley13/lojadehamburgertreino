@@ -161,6 +161,7 @@ aside{
     flex: 1;
     justify-content: center;
     align-items: center;
+    padding: 15px;
 }
 .hamburguerimagearea img{
     height: 400px;
@@ -168,4 +169,5 @@ aside{
 }
 .hamb--info{
     flex: 1;
+    padding: 15px;
 }
