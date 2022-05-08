@@ -171,3 +171,37 @@ aside{
     flex: 1;
     padding: 15px;
 }
+.hamb--info h1{
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.hamb--info--desc{
+    font-size: 15px;
+}
+.hamb--info--setor{
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+.hamb--info--sizes{
+    display: inline-flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.hamb--info--size{
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    background-color: rgb(230, 111, 56);
+    cursor: pointer;
+}
+.hamb--info--size span{
+    margin-left: 5px;
+}
+.hamb--info--size:hover{
+    background-color: #ccc;
+}
+.hamb--info--size.active{
+    background-color: #242222;
+}
