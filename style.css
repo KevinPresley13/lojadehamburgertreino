@@ -306,3 +306,94 @@ aside{
     display: inline-block;
     cursor: pointer;
 }
+
+@media (max-widht:1000px) {
+    .hamb--area{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width:840px) {
+    body {
+        flex-direction: column;
+    }
+    .hamb--area {
+        display:block;
+    }
+    .hamb--item {
+        max-width:100%;
+    }
+    header {
+        display:flex;
+    }
+    main {
+        padding-top:60px;
+    }
+
+    aside {
+        width:auto;
+        position:fixed;
+        left:100vw;
+        right:0;
+        top:0;
+        bottom:0;
+        transition: all ease .2s;
+    }
+    aside.show {
+        width:auto;
+    }
+    .cart--area {
+        width:100vw;
+    }
+
+    .menu-closer {
+        display:block;
+    }
+
+    .hamburgerwindowarea {
+        justify-content:flex-start;
+        align-items: flex-start;
+    }
+
+    .hamburgerbodyarea {
+        width:100vw;
+        display:block;
+        padding:20px;
+        border-radius:0;
+        box-shadow:none;
+        margin:0;
+    }
+
+    .hamburguerimagearea img {
+        width: 75%;
+        height: auto;
+    }
+
+    .hamb--info h1 {
+        margin-top:20px;
+    }
+
+    .hamb--info--qtarea {
+        height:60px;
+    }
+    .hamb--info--qtarea button {
+        font-size:25px;
+        padding:0px 25px;
+    }
+    .hamb--inf--qt {
+        line-height: 60px;
+        font-size:20px;
+    }
+    .hamb--addbuton {
+        font-size:20px;
+        display:block;
+        text-align:center;
+        margin:30px auto;
+    }
+
+    .hamb--cancelbuton {
+        display:none;
+    }
+    .hambInfo--cancelMobileButton {
+        display:block;
+    }
+}
