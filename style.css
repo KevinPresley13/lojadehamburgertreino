@@ -52,7 +52,7 @@ h1 {
 }
 
 .models{
-    display: flex;
+    display: none;
 }
 .hamb-item{
     text-align: center;

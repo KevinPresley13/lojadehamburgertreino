@@ -1,4 +1,4 @@
-let hamburgerjason = [
+let hamburguerjason = [
 {id:1, name:'X-Salada', img:'images/image1.jpg', price:12.99, sizes:['90g', '120', '200g'], description:'Pão,Hamburguer,Queijo,Salada'},
 {id:2, name:'X-Bacon', img:'images/image21.jpg', price:12.99, sizes:['90g', '120', '200g'], description:'Pão,Hamburguer,Queijo,Bacon'},
 {id:3, name:'X-Egg', img:'images/image3.jpg', price:12.99, sizes:['90g', '120', '200g'], description:'Pão,Hamburguer,Queijo,Ovo'},
