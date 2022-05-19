@@ -56,9 +56,11 @@ h1 {
 }
 .hamb-item{
     text-align: center;
-    max-width:250px;
+    max-width: 250px;
     font-family:'Hepta Slab', Helvetica, Arial;
     margin:0 auto 50px auto;
+    display: flex;
+    flex-direction: column;
 }
 .hamb-item a{
     display:flex;
@@ -91,6 +93,12 @@ h1 {
 }
 .hamb-item a:hover .hamb-item--add{
     background-color: rgb(230, 111, 56);
+}
+.hamb-item--description{
+    font-size: 13px;
+    color: #999;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
 }
 
 .cart--item{
