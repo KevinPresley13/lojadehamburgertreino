@@ -69,6 +69,10 @@ h1 {
     text-decoration: none;
 }
 .hamb-item--image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     width: 200px;
     height: 200px;
     background-color:#EEE;
@@ -77,7 +81,7 @@ h1 {
 }
 .hamb-item--image img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 .hamb-item--add{
     width: 40px;
