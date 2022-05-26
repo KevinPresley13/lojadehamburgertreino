@@ -18,7 +18,13 @@ hamburguerjason.map((item, index)=> {
         c('.hamb--info h1').innerHTML = hamburguerjason[key].name;
         c('.hamb--info--desc').innerHTML = hamburguerjason[key].description;
         c('.hamb--info--actualprice').innerHTML = `R$ ${hamburguerjason[key].price.toFixed(2)}`;
-
+        c('.hamb--info--size.active').classList.remove('active');
+        cl('.hamb--info--size').forEach((size, sizeindex)=>{
+            if(sizeindex == 2) {
+                size.classList.add('active');
+            };
+            size.querySelector('span').innerHTML = hamburguerjason[key].sizes[sizeindex];
+        });
         //setando função de animaçao da tela de adcionar pedidos
         c('.hamburgerwindowarea').style.opacity = 0;
         c('.hamburgerwindowarea').style.display = 'flex';
