@@ -227,7 +227,7 @@ aside{
 }
 .hamburguerimagearea img{
     height: 400px;
-    width: auto;
+    width: 400px;
 }
 .hamb--info{
     flex: 1;
