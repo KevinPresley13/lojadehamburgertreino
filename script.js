@@ -1,3 +1,4 @@
+let modalqt = 1;
 const c = (el)=> document.querySelector(el);
 const cl = (el)=> document.querySelectorAll(el);
 
@@ -11,8 +12,9 @@ hamburguerjason.map((item, index)=> {
     hambitem.querySelector('.hamb-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`;
     hambitem.querySelector('.hamb-item--name').innerHTML = item.name;
     hambitem.querySelector('.hamb-item--description').innerHTML = item.description;
-    hambitem.querySelector('a').addEventListener('click',(e)=>{
+    hambitem.querySelector('a').addEventListener('click',(e)=>{//setando informaçoes dentro da tela de pedidos 
         e.preventDefault();
+        modalqt = 1;
         let key = e.target.closest('.hamb-item').getAttribute('data-key');
         c('.hamburguerimagearea img').src = hamburguerjason[key].img;
         c('.hamb--info h1').innerHTML = hamburguerjason[key].name;
@@ -25,6 +27,8 @@ hamburguerjason.map((item, index)=> {
             };
             size.querySelector('span').innerHTML = hamburguerjason[key].sizes[sizeindex];
         });
+        c('.hamb--inf--qt').innerHTML = modalqt;//zerando quantidade de item selecionado
+
         //setando função de animaçao da tela de adcionar pedidos
         c('.hamburgerwindowarea').style.opacity = 0;
         c('.hamburgerwindowarea').style.display = 'flex';
@@ -36,3 +40,9 @@ hamburguerjason.map((item, index)=> {
     //fechar tela de adicionar pedidos
     c('.hamb--area').append(hambitem);// 'append'adiciona itens ao invés de substituir
 });
+//eventos do modal
+const closemodal = ()=>{//funçao de fechar janela de pedidos
+    c('.hamburgerwindowarea').style.opacity = 0;
+    c('.hamburgerwindowarea').style.display = 'none';
+
+}
