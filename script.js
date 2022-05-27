@@ -43,6 +43,10 @@ hamburguerjason.map((item, index)=> {
 //eventos do modal
 const closemodal = ()=>{//funçao de fechar janela de pedidos
     c('.hamburgerwindowarea').style.opacity = 0;
-    c('.hamburgerwindowarea').style.display = 'none';
-
+    setTimeout(()=>{ 
+        c('.hamburgerwindowarea').style.display = 'none';
+    },500);   
 }
+cl('.hamb--cancelbuton, .hambInfo--cancelMobileButton').forEach((item)=> {
+    item.addEventListener('click', closemodal);
+});
