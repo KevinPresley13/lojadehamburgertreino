@@ -209,6 +209,7 @@ aside{
 }
 .hambInfo--cancelMobileButton{
     display: none;
+    cursor: pointer
 }
 .hamburgerbodyarea{
     display: flex;

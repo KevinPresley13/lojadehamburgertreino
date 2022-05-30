@@ -22,7 +22,7 @@ hamburguerjason.map((item, index)=> {
         c('.hamb--info--actualprice').innerHTML = `R$ ${hamburguerjason[key].price.toFixed(2)}`;
         c('.hamb--info--size.active').classList.remove('active');
         cl('.hamb--info--size').forEach((size, sizeindex)=>{
-            if(sizeindex == 2) {
+            if(sizeindex == 0) {
                 size.classList.add('active');
             };
             size.querySelector('span').innerHTML = hamburguerjason[key].sizes[sizeindex];
@@ -37,7 +37,7 @@ hamburguerjason.map((item, index)=> {
         },200);
        
     });
-    //fechar tela de adicionar pedidos
+
     c('.hamb--area').append(hambitem);// 'append'adiciona itens ao invés de substituir
 });
 //eventos do modal
@@ -49,4 +49,22 @@ const closemodal = ()=>{//funçao de fechar janela de pedidos
 }
 cl('.hamb--cancelbuton, .hambInfo--cancelMobileButton').forEach((item)=> {
     item.addEventListener('click', closemodal);
+});
+
+c('.hamb--info--qtmenos').addEventListener('click',()=>{
+    if(modalqt>1){
+        modalqt--;
+        c('.hamb--inf--qt').innerHTML = modalqt;
+    }
+});
+c('.hamb--info--qtmais').addEventListener('click',()=>{
+    modalqt++;
+    c('.hamb--inf--qt').innerHTML = modalqt;
+    
+});
+cl('.hamb--info--size').forEach((size, sizeindex)=>{
+    size.addEventListener('click',(e)=>{
+        c('.hamb--info--size.active').classList.remove('active');
+        size.classList.add('active');
+    });
 });
