@@ -1,4 +1,6 @@
+let cart =[];
 let modalqt = 1;
+let modalkey=0;
 const c = (el)=> document.querySelector(el);
 const cl = (el)=> document.querySelectorAll(el);
 
@@ -16,6 +18,7 @@ hamburguerjason.map((item, index)=> {
         e.preventDefault();
         modalqt = 1;
         let key = e.target.closest('.hamb-item').getAttribute('data-key');
+        modalkey = key;
         c('.hamburguerimagearea img').src = hamburguerjason[key].img;
         c('.hamb--info h1').innerHTML = hamburguerjason[key].name;
         c('.hamb--info--desc').innerHTML = hamburguerjason[key].description;
@@ -67,4 +70,17 @@ cl('.hamb--info--size').forEach((size, sizeindex)=>{
         c('.hamb--info--size.active').classList.remove('active');
         size.classList.add('active');
     });
+});
+
+c('.hamb--addbuton').addEventListener('click',()=>{
+    let size = c('.hamb--info--size.active').getAttribute('data-key');
+    cart.push({
+        id:hamburguerjason[modalkey].id,
+        size,
+        quantidade:modalqt
+    });
+    c('.hamburgerwindowarea').style.opacity = 0;
+    setTimeout(()=>{ 
+        c('.hamburgerwindowarea').style.display = 'none';
+    },500); 
 });
