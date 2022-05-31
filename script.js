@@ -3,7 +3,7 @@ let modalqt = 1;
 let modalkey=0;
 const c = (el)=> document.querySelector(el);
 const cl = (el)=> document.querySelectorAll(el);
-
+alert('Esse site é somente para TREINO,tudo o conteudo dele é de TESTE, Click em ok para continuar');
 
 hamburguerjason.map((item, index)=> {
     let hambitem = c('.models .hamb-item').cloneNode(true);//criando função hambitem para facilitar a leitura do codigo 
@@ -65,7 +65,8 @@ c('.hamb--info--qtmais').addEventListener('click',()=>{
     c('.hamb--inf--qt').innerHTML = modalqt;
     
 });
-cl('.hamb--info--size').forEach((size, sizeindex)=>{
+
+cl('.hamb--info--size').forEach((size, sizeindex)=>{//modificar o tamanho do hamburguer
     size.addEventListener('click',(e)=>{
         c('.hamb--info--size.active').classList.remove('active');
         size.classList.add('active');
@@ -73,14 +74,18 @@ cl('.hamb--info--size').forEach((size, sizeindex)=>{
 });
 
 c('.hamb--addbuton').addEventListener('click',()=>{
-    let size = c('.hamb--info--size.active').getAttribute('data-key');
-    cart.push({
-        id:hamburguerjason[modalkey].id,
-        size,
-        quantidade:modalqt
-    });
-    c('.hamburgerwindowarea').style.opacity = 0;
-    setTimeout(()=>{ 
-        c('.hamburgerwindowarea').style.display = 'none';
-    },500); 
+    let size = parseInt(c('.hamb--info--size.active').getAttribute('data-key'));
+    let indentifier = hamburguerjason[modalkey].id+'@'+size;
+    let key = cart.findIndex((item)=>item.indentifier == indentifier);
+    if(key>-1){
+        cart[key].quantidade += modalqt;
+    } else{
+        cart.push({
+            indentifier,
+            id:hamburguerjason[modalkey].id,
+            size,
+            quantidade:modalqt
+        });
+    }    
+    closemodal();
 });
