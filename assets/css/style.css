@@ -160,6 +160,9 @@ aside{
     transition:all ease .2s;
     overflow-x:hidden;
 }
+aside.show {
+    width:30vw;
+}
 .cart--area{
     padding: 20px;
 }
