@@ -117,26 +117,29 @@ function updateCart(){
             cartitem.querySelector('.cart--item-qtmenos').addEventListener('click',()=>{
                 if(cart[i].quantidade>1){
                     cart[i].quantidade --;
-                    cartitem.querySelector('.cart--item--qt').innerHTML = cart[i].quantidade;
-                };    
+                }else{
+                    cart.splice(i,1)
+                };
+                
+                updateCart();
             }),
             cartitem.querySelector('.cart--item-qtmais').addEventListener('click',()=>{
                 if(cart[i].quantidade>=1){
                     cart[i].quantidade ++;
-                    cartitem.querySelector('.cart--item--qt').innerHTML = cart[i].quantidade;
+                    updateCart();
                 };    
             }),
             c('.cart').append(cartitem);
         }
     } else{
-        c('aside').classList.remove('show');
-    }   
+        c('aside').classList.remove('show')
+    };
 };
 
 
 
 c('.cart--finalizar').addEventListener('click',()=>{
     alert('Pedido não pode ser efetuado...SITE apenas para Portifólio!!!Obrigado por testar!!');
-    c('.cart').innerHTML = '';
+    cart.splice(cart);
     c('aside').classList.remove('show');
 });
