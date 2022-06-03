@@ -3,7 +3,7 @@ let modalqt = 1;
 let modalkey=0;
 const c = (el)=> document.querySelector(el);
 const cl = (el)=> document.querySelectorAll(el);
-alert('Esse site é somente para TREINO,tudo o conteudo dele é de TESTE, Click em ok para continuar');
+//alert('Esse site é somente para TREINO,tudo o conteudo dele é de TESTE, Click em ok para continuar');
 
 hamburguerjason.map((item, index)=> {
     let hambitem = c('.models .hamb-item').cloneNode(true);//criando função hambitem para facilitar a leitura do codigo 
@@ -86,6 +86,57 @@ c('.hamb--addbuton').addEventListener('click',()=>{
             size,
             quantidade:modalqt
         });
-    }    
+    }  
+    updateCart();  
     closemodal();
+});
+function updateCart(){
+    if(cart.length>0){
+        c('aside').classList.add('show');
+        c('.cart').innerHTML = '';
+        for (let i in cart) {
+            let hambitem = hamburguerjason.find((item)=>item.id == cart[i].id );
+            let cartitem = c('.models .cart--item').cloneNode(true);
+            let hambSizeName;
+            switch(cart[i].size) {
+                case 0:
+                    hambSizeName = 'P'
+                    break;
+                case 1:
+                    hambSizeName = 'M'
+                    break;
+                case 2:
+                    hambSizeName = 'G'
+                    break;
+            };
+
+            let hambCartName = `${hambitem.name} (${hambSizeName})`;
+            cartitem.querySelector('img').src = hambitem.img;
+            cartitem.querySelector('.cart--item-nome').innerHTML = hambCartName;
+            cartitem.querySelector('.cart--item--qt').innerHTML = cart[i].quantidade;
+            cartitem.querySelector('.cart--item-qtmenos').addEventListener('click',()=>{
+                if(cart[i].quantidade>1){
+                    cart[i].quantidade --;
+                    cartitem.querySelector('.cart--item--qt').innerHTML = cart[i].quantidade;
+                };    
+            }),
+            cartitem.querySelector('.cart--item-qtmais').addEventListener('click',()=>{
+                if(cart[i].quantidade>=1){
+                    cart[i].quantidade ++;
+                    cartitem.querySelector('.cart--item--qt').innerHTML = cart[i].quantidade;
+                };    
+            }),
+            c('.cart').append(cartitem);
+        }
+    } else{
+        c('aside').classList.remove('show');
+    }   
+};
+
+
+
+c('.cart--finalizar').addEventListener('click',()=>{
+    alert('Pedido não pode ser efetuado...SITE apenas para Portifólio!!!Obrigado por testar!!');
+    c('.cart').innerHTML = '';
+    c('aside').classList.remove('show');
 });
