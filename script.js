@@ -94,8 +94,13 @@ function updateCart(){
     if(cart.length>0){
         c('aside').classList.add('show');
         c('.cart').innerHTML = '';
+        let subtotal =0;
+        let desconto =0;
+        let total =0;
         for (let i in cart) {
             let hambitem = hamburguerjason.find((item)=>item.id == cart[i].id );
+            subtotal += hambitem.price * cart[i].quantidade;
+
             let cartitem = c('.models .cart--item').cloneNode(true);
             let hambSizeName;
             switch(cart[i].size) {
@@ -131,6 +136,17 @@ function updateCart(){
             }),
             c('.cart').append(cartitem);
         }
+        
+       function calcDesconto(){
+           if(subtotal>50)
+                desconto = subtotal * 0.1;
+       };
+       calcDesconto();
+        total = subtotal - desconto;
+        c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`;
+        c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
+        c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
+
     } else{
         c('aside').classList.remove('show')
     };
