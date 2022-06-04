@@ -368,7 +368,8 @@ aside.show {
     }
 
     .menu-closer {
-        display:block;
+        display:flex;
+        cursor: pointer;
     }
 
     .hamburgerwindowarea {
